@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #120018, #3b0a45, #17001f);
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   PÁGINA INICIAL
+========================= */
+
+.inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background:
+        radial-gradient(circle at top, #7b1fa2, transparent 45%),
+        linear-gradient(135deg, #100014, #25002e);
+}
+
+.contenedor-inicio {
+    max-width: 650px;
+    padding: 50px 35px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+
+    animation: aparecer 1.2s ease;
+}
+
+.corazon {
+    font-size: 70px;
+    animation: latir 1.5s infinite;
+}
+
+h1 {
+    font-size: 45px;
+    margin: 20px 0;
+}
+
+.subtitulo {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.contenedor-inicio p {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.boton {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background: white;
+    color: #5b0b6b;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(255,255,255,0.5);
+}
+
+
+/* =========================
+   PÁGINA DE CANTANTES
+========================= */
+
+.pagina {
+    text-align: center;
+    padding: 60px 30px;
+    animation: aparecer 1s ease;
+}
+
+.pagina h1 {
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    opacity: 0.8;
+    margin-bottom: 50px;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    width: 270px;
+    padding: 15px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.08);
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.tarjeta:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.tarjeta h2 {
+    margin-top: 15px;
+}
+
+.tarjeta p {
+    margin-top: 8px;
+    opacity: 0.7;
+}
+
+
+/* =========================
+   PÁGINA DE CANCIÓN
+========================= */
+
+.pagina-cancion {
+    min-height: 100vh;
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    animation: aparecer 1s ease;
+}
+
+.foto-artista {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.7);
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+}
+
+.texto-cancion {
+    font-size: 20px;
+    line-height: 1.7;
+    margin: 30px auto;
+    max-width: 600px;
+    font-style: italic;
+}
+
+.reproductor {
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 25px;
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.carta {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 25px;
+    margin: 30px auto;
+    text-align: left;
+    line-height: 1.8;
+}
+
+.carta h2 {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes latir {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .contenedor-inicio {
+        padding: 40px 20px;
+    }
+
+    .tarjeta {
+        width: 90%;
+        max-width: 300px;
+    }
+
+}
