@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saske ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            min-height: 100vh;
+            padding: 30px 40px;
+
+            background:
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 90, 0.18), transparent 30%),
+                radial-gradient(circle at 90% 10%, rgba(120, 60, 255, 0.18), transparent 30%),
+                radial-gradient(circle at 50% 100%, rgba(255, 0, 120, 0.12), transparent 35%),
+                linear-gradient(135deg, #050505, #11101a, #080808);
+
+            overflow-x: hidden;
+        }
+
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        body::before {
+            background: #ff0077;
+            top: -100px;
+            left: -100px;
+        }
+
+
+        body::after {
+            background: #713cff;
+            bottom: -100px;
+            right: -100px;
+        }
+
+
+        .contenedor {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* BOTÓN REGRESAR */
+
+        .btn-regresar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            text-decoration: none;
+            color: white;
+
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.13);
+
+            padding: 11px 18px;
+            border-radius: 50px;
+
+            font-size: 15px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35);
+
+            backdrop-filter: blur(12px);
+
+            transition: 0.3s ease;
+
+            margin-bottom: 30px;
+        }
+
+
+        .btn-regresar:hover {
+            transform: translateX(-5px);
+
+            background: linear-gradient(
+                135deg,
+                rgba(255,0,120,0.25),
+                rgba(120,60,255,0.25)
+            );
+
+            border-color: rgba(255,255,255,0.25);
+
+            box-shadow:
+                0 10px 30px rgba(255,0,120,0.15);
+        }
+
+
+        /* TÍTULO */
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+
+        .titulo h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+
+            text-shadow:
+                0 0 10px rgba(255,255,255,0.3),
+                0 0 30px rgba(255,0,120,0.25);
+        }
+
+
+        .titulo p {
+            color: #bdbdbd;
+            font-size: 18px;
+        }
+
+
+        /* CORAZONES */
+
+        .corazon {
+            position: fixed;
+            color: rgba(255, 90, 150, 0.18);
+            font-size: 30px;
+            pointer-events: none;
+            animation: flotar 6s ease-in-out infinite;
+        }
+
+
+        .corazon1 {
+            top: 15%;
+            left: 5%;
+        }
+
+
+        .corazon2 {
+            top: 70%;
+            right: 6%;
+            animation-delay: 2s;
+        }
+
+
+        .corazon3 {
+            top: 40%;
+            right: 3%;
+            font-size: 20px;
+            animation-delay: 1s;
+        }
+
+
+        @keyframes flotar {
+
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+        }
+
+
+        /* DOS COLUMNAS */
+
+        .contenido {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+
+        /* FOTO PRINCIPAL */
+
+        .foto-principal {
+            background: rgba(255,255,255,0.055);
+            padding: 20px;
+            border-radius: 28px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.55),
+                0 0 35px rgba(255,0,120,0.08);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.4s ease;
+        }
+
+
+        .foto-principal:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.65),
+                0 0 45px rgba(255,0,120,0.16);
+        }
+
+
+        .foto-principal img {
+            width: 100%;
+            height: 520px;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+            display: block;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.6);
+
+            transition: 0.5s ease;
+        }
+
+
+        .foto-principal:hover img {
+            transform: scale(1.015);
+        }
+
+
+        .foto-principal h2 {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 30px;
+        }
+
+
+        .foto-principal p {
+            text-align: center;
+            color: #aaa;
+            margin-top: 9px;
+            line-height: 1.5;
+        }
+
+
+        /* CARTA */
+
+        .carta {
+            background: rgba(255,255,255,0.065);
+
+            border: 1px solid rgba(255,255,255,0.13);
+
+            border-radius: 28px;
+            padding: 30px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.45),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+
+            backdrop-filter: blur(18px);
+
+            transition: 0.4s ease;
+        }
+
+
+        .carta:hover {
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.55),
+                0 0 35px rgba(255,0,120,0.08);
+        }
+
+
+        .carta h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 0 20px rgba(255,80,150,0.25);
+        }
+
+
+        .carta p {
+            color: #e5e5e5;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 17px;
+        }
+
+
+        .firma {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 25px;
+            color: white;
+
+            text-shadow:
+                0 0 15px rgba(255,80,150,0.35);
+        }
+
+
+        /* REPRODUCTOR */
+
+        .musica {
+            margin-top: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(35,35,40,0.95),
+                    rgba(12,12,15,0.95)
+                );
+
+            border-radius: 28px;
+            padding: 25px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.55),
+                0 0 35px rgba(120,60,255,0.08);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.4s ease;
+        }
+
+
+        .musica:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.65),
+                0 0 40px rgba(120,60,255,0.14);
+        }
+
+
+        .musica-contenido {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        /* CARÁTULA */
+
+        .caratula {
+            width: 125px;
+            height: 125px;
+
+            border-radius: 20px;
+
+            object-fit: cover;
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.65),
+                0 0 25px rgba(255,0,120,0.12);
+
+            flex-shrink: 0;
+
+            transition: 0.4s ease;
+        }
+
+
+        .caratula:hover {
+            transform: scale(1.04) rotate(1deg);
+        }
+
+
+        .informacion-musica {
+            flex: 1;
+        }
+
+
+        .informacion-musica h3 {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+
+        .artista {
+            color: #aaa;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+
+        .detalle {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+
+        /* AUDIO */
+
+        audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+
+        .mensaje-musica {
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+
+        /* MENSAJE FINAL */
+
+        .mensaje {
+            margin-top: 35px;
+            text-align: center;
+            color: #aaa;
+            font-size: 15px;
+
+            padding-bottom: 20px;
+
+            text-shadow:
+                0 0 15px rgba(255,255,255,0.15);
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 800px) {
+
+            body {
+                padding: 20px;
+            }
+
+
+            .contenido {
+                grid-template-columns: 1fr;
+            }
+
+
+            .titulo h1 {
+                font-size: 35px;
+            }
+
+
+            .titulo p {
+                font-size: 15px;
+            }
+
+
+            .foto-principal img {
+                height: 420px;
+            }
+
+
+            .carta {
+                padding: 22px;
+            }
+
+
+            .carta h2 {
+                font-size: 25px;
+            }
+
+
+            .musica-contenido {
+                flex-direction: column;
+                text-align: center;
+            }
+
+
+            .caratula {
+                width: 170px;
+                height: 170px;
+            }
+
+
+            .informacion-musica {
+                width: 100%;
+            }
+
+
+            .corazon {
+                display: none;
+            }
+
+
+            .btn-regresar {
+                margin-bottom: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- CORAZONES DECORATIVOS -->
+
+    <div class="corazon corazon1">❤️</div>
+    <div class="corazon corazon2">♡</div>
+    <div class="corazon corazon3">♥</div>
+
+
+    <div class="contenedor">
+
+
+        <!-- BOTÓN REGRESAR -->
+
+        <a href="cantantes.html" class="btn-regresar">
+            ← Regresar
+        </a>
+
+
+        <!-- TÍTULO -->
+
+        <div class="titulo">
+
+            <h1>
+                Saske ❤️
+            </h1>
+
+            <p>
+                Una pequeña parte de algo muy especial
+            </p>
+
+        </div>
+
+
+        <!-- CONTENIDO -->
+
+        <div class="contenido">
+
+
+            <!-- FOTO DE SASKE -->
+
+            <div class="foto-principal">
+
+                <img
+                    src="saskecover.jpg"
+                    alt="Saske"
+                >
+
+                <h2>
+                    Saske
+                </h2>
+
+                <p>
+                    Una canción, un sentimiento y un pequeño
+                    detalle hecho especialmente para ti.
+                </p>
+
+            </div>
+
+
+            <!-- COLUMNA DERECHA -->
+
+            <div>
+
+
+                <!-- CARTA -->
+
+                <div class="carta">
+
+                    <h2>
+                         mi niña hermosa ❤️
+                    </h2>
+
+
+                    <p>
+                        Mi corazoncito de meloncito
+                    </p>
+
+
+                    <p>
+                        Hay muchas cosas que me gustan de ti,
+                        pero creo que nunca te he dicho realmente
+                        todo lo que veo cuando te miro.
+                    </p>
+
+
+                    <p>
+                        A veces me quedo pensando en lo bonita
+                        que eres y en cómo hay pequeños detalles
+                        de ti que quizá tú ni siquiera notas,
+                        pero que para mí son de las cosas más
+                        especiales que tienes.
+                    </p>
+
+
+                    <p>
+                        Me encantan tus ojos. No solamente porque
+                        son bonitos, sino porque siento que tienen
+                        algo que hace que me quede mirándolos más
+                        de lo que debería. Tienen una forma de hacer
+                        que todo se sienta diferente, y podría pasar
+                        mucho tiempo simplemente mirándolos.
+                    </p>
+
+
+                    <p>
+                        Y hay algo en especial que siempre me ha
+                        parecido precioso: <strong>ese pequeño lunar
+                        debajo de tus ojos.</strong> ❤️
+                    </p>
+
+
+                    <p>
+                        Quizá para ti sea solamente un detalle más,
+                        algo que siempre ha estado ahí y que
+                        probablemente ni siquiera piensas mucho
+                        en ello, pero para mí es una de esas pequeñas
+                        cosas que hacen que tu rostro sea solamente
+                        tuyo. Es como un pequeño detalle que te hace
+                        todavía más hermosa.
+                    </p>
+
+
+                    <p>
+                        También está tu sonrisa.
+                    </p>
+
+
+                    <p>
+                        Tu sonrisa es de esas cosas que pueden
+                        cambiar completamente un momento. Me encanta
+                        verte sonreír, porque cuando lo haces siento
+                        que todo se vuelve mucho más bonito.
+                        Y aunque quizá no te des cuenta, muchas veces
+                        una simple sonrisa tuya puede alegrarme
+                        muchísimo.
+                    </p>
+
+
+                    <p>
+                        Pero no quiero hablar solamente de tus ojos
+                        o de tu sonrisa.
+                    </p>
+
+
+                    <p>
+                        Me gusta <strong>todo de ti.</strong>
+                    </p>
+
+
+                    <p>
+                        Me gusta tu forma de ser, tus pequeños gestos,
+                        la manera en que hablas, la forma en que te
+                        emocionas por las cosas que te gustan y hasta
+                        esas pequeñas cosas que quizá tú consideras
+                        insignificantes, pero que yo termino recordando.
+                    </p>
+
+
+                    <p>
+                        Porque creo que cuando de verdad quieres a
+                        alguien, empiezas a querer también esas
+                        pequeñas partes que hacen que esa persona
+                        sea quien es.
+                    </p>
+
+
+                    <p>
+                
+                    </p>
+
+
+                    <p>
+                        <strong>“True Love”</strong> me hizo pensar en ti,
+                        en tu forma de ser y en todas esas pequeñas
+                        cosas que hacen que para mí seas tan especial.
+                        No solamente por cómo te ves, sino por todo
+                        lo que eres.
+                    </p>
+
+
+                    <p>
+                        Quiero que cuando escuches esta canción y
+                        llegues a esa parte que habla de esa pequeña
+                        estrella debajo de la luna, recuerdes que
+                        hay alguien que también se ha fijado en ese
+                        pequeño detalle de ti y que piensa que es
+                        precioso. ❤️
+                    </p>
+
+
+                    <p>
+                        No sé si alguna vez te has visto de la manera
+                        en que yo te veo, pero ojalá algún día puedas
+                        hacerlo.
+                    </p>
+
+
+                    <p>
+                        Porque si pudieras verte aunque fuera por un
+                        momento desde mis ojos, entenderías por qué
+                        me pareces tan hermosa.
+                    </p>
+
+
+                    <p>
+                        <strong>Feliz cumpleaños, mi niña bonita. ❤️</strong>
+                    </p>
+
+
+                    <p>
+                        Espero que nunca olvides lo especial,
+                        hermosa y única que eres para mí.
+                    </p>
+
+
+                    <div class="firma">
+                        Con mucho amor ❤️
+                    </div>
+
+                </div>
+
+
+                <!-- REPRODUCTOR DE TRUE LOVE -->
+
+                <div class="musica">
+
+
+                    <div class="musica-contenido">
+
+
+                        <!-- CARÁTULA -->
+
+                        <img
+                            src="hola.jpg"
+                            alt="True Love"
+                            class="caratula"
+                        >
+
+
+                        <div class="informacion-musica">
+
+
+                            <h3>
+                                🎵 True Love
+                            </h3>
+
+
+                            <div class="artista">
+                                Saske
+                            </div>
+
+
+                            <div class="detalle">
+                                Una canción especial para ti ❤️
+                            </div>
+
+
+                            <audio controls>
+
+                                <source
+                                    src="SASKE Y CARRION - True love.mp3"
+                                    type="audio/mpeg"
+                                >
+
+                                Tu navegador no puede reproducir este audio.
+
+                            </audio>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="mensaje-musica">
+
+                        Esta canción me hizo pensar en ti,
+                        especialmente en esos pequeños detalles
+                        que te hacen tan hermosa. ❤️
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- MENSAJE FINAL -->
+
+        <div class="mensaje">
+
+            Hecho especialmente para ti ❤️
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>
